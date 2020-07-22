@@ -1,0 +1,30 @@
+$(document).ready(function () {
+    const windowWidth = $(window).width();
+    const windowHeight = $(window).height();
+
+    const mIcon = (code, className='') => `<i class="material-icons ${className}">${code}</i>`;
+    
+    // Mobile nav
+    if(windowWidth <= 600){
+        $('nav').removeClass('blue darken-4').addClass('white z-depth-4');
+        $('#nav-mobile li').each((i,e) => {
+            const setIcon = $(e).children();
+            switch (i) {
+                case 0:
+                    setIcon.html(mIcon('home'));
+                    break;
+                case 1:
+                    setIcon.html(mIcon('people'));
+                    break;
+                case 2:
+                    setIcon.html(mIcon('compare_arrows'));
+                    break;
+                case 3:
+                    setIcon.html(mIcon('favorite'));
+                    break;
+                default:
+                    break;
+            }
+        })
+    }
+});
