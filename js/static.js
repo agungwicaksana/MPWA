@@ -4,8 +4,9 @@ $(document).ready(function () {
 
     const mIcon = (code, className='') => `<i class="material-icons ${className}">${code}</i>`;
     
-    // Mobile nav
+    // If on Movile (screen <= 600px)
     if(windowWidth <= 600){
+        // Mobile nav
         $('nav').removeClass('blue darken-4').addClass('white z-depth-4');
         $('#nav-mobile li').each((i,e) => {
             const setIcon = $(e).children();
@@ -25,6 +26,8 @@ $(document).ready(function () {
                 default:
                     break;
             }
-        })
+        });
     }
+
+    
 });
