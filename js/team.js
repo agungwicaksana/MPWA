@@ -24,19 +24,21 @@ export default function renderTeam(data) {
     teams.forEach(team => {
         teamBoxes += `
             <div class="col s12 m6 l4">
-                <div class="team-box white z-depth-3 waves-effect">
-                    <div class="team-logo">
-                        <img src="${urlHttps(team.crestUrl)}" onerror="this.src='/assets/Ball.svg'" alt="Logo ${team.name}">
-                    </div>
-                    <div class="team-info">
-                        <div class="team-name">
-                            ${team.name} / ${team.shortName}
+                <a href="team-detail.html?id=${team.id}">
+                    <div class="team-box white z-depth-3 waves-effect">
+                        <div class="team-logo">
+                            <img src="${urlHttps(team.crestUrl)}" onerror="this.src='/assets/Ball.svg'" alt="Logo ${team.name}">
                         </div>
-                        <div class="team-founded">
-                            ${team.founded}
+                        <div class="team-info">
+                            <div class="team-name">
+                                ${team.name} / <b>${team.tla}</b>
+                            </div>
+                            <div class="team-founded">
+                                ${team.founded}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         `
     });
@@ -44,7 +46,7 @@ export default function renderTeam(data) {
     const content = `
         <div id="team-container" class="grey lighten-4">
             <div class="container">
-                <div class="row mt-3">
+                <div class="row pt-3">
                     ${teamBoxes}
                 </div>
             </div>
@@ -59,6 +61,6 @@ export default function renderTeam(data) {
         $('#title-container').addClass('blue darken-4');
     }
     if($(window).width() >= 601) {
-        $('#team-container > .container > .row').removeClass('mt-3');
+        $('#team-container > .container > .row').removeClass('pt-3');
     }
 }

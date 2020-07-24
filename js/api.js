@@ -1,4 +1,5 @@
 import renderTeam from "./team.js";
+import renderTeamDetail from "./team-detail.js";
 
 const apiUrl = "https://api.football-data.org/v2/";
 const apiToken = "02c651fbb55e47e18b7702cacefba634";
@@ -38,4 +39,11 @@ switch (document.location.href.split('/').pop()) {
         break;
     default:
         break;
+}
+
+// Team-Detail
+const teamDetailParam = document.location.href.split('/').pop().split('?');
+if(teamDetailParam[0] === "team-detail.html") {
+    const teamId = teamDetailParam[1].substr(3);
+    getData(`teams/${teamId}`, renderTeamDetail)
 }

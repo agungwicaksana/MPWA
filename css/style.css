@@ -6,6 +6,7 @@
         bottom: 0;
         left: 0;
         right: 0;
+        z-index: 2;
     }
     .nav-container {
         width: 100%;
@@ -97,4 +98,72 @@
 .team-box .team-founded {
     display: flex;
     flex: 100%;
+}
+
+/* Team Detail */
+.team-box.team-detail {
+    flex-wrap: wrap;
+}
+.team-info.team-detail {
+    align-content: flex-start;
+    justify-content: center;
+}
+.team-squad {
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+@media (max-width: 600px) {
+    .team-box.team-detail {
+        flex-wrap: wrap;
+    }
+    .team-box .team-logo.team-detail {
+        width: 100%;
+        max-width: unset;
+        height: 120px;
+    }
+    .team-box .team-logo.team-detail img {
+        max-height: unset;
+        margin-top: 10px;
+    }
+    .team-info.team-detail {
+        width: 100%;
+    }
+    .favorite-btn {
+        right: 7%;
+        bottom: 11%;
+    }
+}
+@media (min-width: 601px) {
+    .team-box .team-logo.team-detail {
+        max-width: 400px;
+        height: unset;
+    }
+    .team-box .team-logo.team-detail img {
+        max-height: unset;
+        padding: 25px;
+    }
+}
+
+/* Favorite Btn */
+.favorite-btn {
+    position: fixed;
+}
+.favorite-btn a {
+    border-radius: 5px;
+}
+
+@media (min-width: 601px) and (max-width: 992px) {
+    .favorite-btn {
+        right: 10%;
+        bottom: 10%;
+    }
+}
+@media (min-width: 993px) {
+    .favorite-btn {
+        right: 5%;
+        bottom: 10%;
+    }
 }

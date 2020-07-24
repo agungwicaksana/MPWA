@@ -27,6 +27,7 @@ $(document).ready(function () {
                     break;
             }
         });
+        $('#content').css({"margin-bottom": `${$('nav').height() + 20}px`});
     }
 
     
