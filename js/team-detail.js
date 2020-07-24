@@ -3,9 +3,8 @@ import urlHttps from "./url.js";
 export default function renderTeamDetail(team) {
     console.log(team)
     // Check data
-    const checkD = datum => {
-        return (datum === null || datum === undefined) ? '-' : datum;
-    }
+    const checkD = datum => (datum === null || datum === undefined) ? '-' : datum;
+    
     // DoB to Age
     const getAge = (dob) => {
         const date = dob.substr(0,10).split('-');
@@ -50,6 +49,9 @@ export default function renderTeamDetail(team) {
     <div class="container pt-3">
         <div class="team-box team-detail">
             <div class="team-logo team-detail">
+                <div class="back-btn">
+                    <a class="btn-floating btn-large waves-effect waves-light red darken-4 btn-small"><i class="material-icons">arrow_back</i></a>
+                </div>
                 <img src="${urlHttps(team.crestUrl)}" onerror="this.src='/assets/Ball.svg'" alt="Logo ${checkD(team.name)}">
             </div>
             <div class="team-info team-detail mt-2">
@@ -112,7 +114,7 @@ export default function renderTeamDetail(team) {
     // DOM Manipulation
     $('#content').html(mainContent);
     
-    if($(window).width() <= 600){
+    if($(window).width() <= 992){
         $('.team-squad > table').addClass('centered');
     }
     if($(window).width() > 992){
@@ -131,5 +133,11 @@ export default function renderTeamDetail(team) {
             $(e.target).addClass('darken-4')
             // Del from indexedDB
         };
+    });
+
+    // Back Button func
+    $('.back-btn').click(function(e) {  
+        e.preventDefault();
+        location.href = 'team.html';
     });
 }

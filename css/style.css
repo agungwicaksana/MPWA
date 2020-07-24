@@ -167,3 +167,10 @@
         bottom: 10%;
     }
 }
+
+/* Back Btn */
+.back-btn {
+    position: absolute;
+    margin-left: 1.5%;
+    margin-top: 1.5%;
+}
