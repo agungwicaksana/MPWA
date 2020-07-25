@@ -1,5 +1,6 @@
 import renderTeam from "./team.js";
 import renderTeamDetail from "./team-detail.js";
+import renderMatch from "./match.js";
 
 const apiUrl = "https://api.football-data.org/v2/";
 const apiToken = "02c651fbb55e47e18b7702cacefba634";
@@ -32,12 +33,13 @@ switch (document.location.href.split('/').pop()) {
         break;
     case "match.html":
         console.log('match');
-        getData('competitions/2001/matches', function (data) {console.log('ini fungsi renderer',data)});
+        getData('competitions/2001/matches', renderMatch);
         break;
     case "favorite.html":
         console.log('Favorite');
         break;
     default:
+        location.href = '/';
         break;
 }
 

@@ -18,8 +18,6 @@ export default function renderTeam(data) {
         </div>`;
     mainContent += pageTitle;
 
-    console.log(teams)
-
     let teamBoxes = ``;
     teams.forEach(team => {
         teamBoxes += `
