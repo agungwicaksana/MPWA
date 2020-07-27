@@ -6,9 +6,9 @@ import renderIndex from "./index.js";
 const apiUrl = "https://api.football-data.org/v2/competitions/2001/";
 const apiToken = "02c651fbb55e47e18b7702cacefba634";
 
-const getData = (endpoint, renderer) => {
+const getData = (endpoint, renderer, team = false) => {
     $.ajax({
-        url: `${apiUrl}/${endpoint}`,
+        url: `${(team) ? apiUrl.substr(0,32) : apiUrl}/${endpoint}`,
         headers : {"X-Auth-Token": apiToken},
         // contentType: "application/json;charset=UTF-8",
         // dataType: 'json',
@@ -41,13 +41,13 @@ switch (document.location.href.split('/').pop()) {
         console.log('Favorite');
         break;
     default:
-        location.href = '/';
+        // Team-Detail
+        const teamDetailParam = document.location.href.split('/').pop().split('?');
+        if(teamDetailParam[0] === "team-detail.html") {
+            const teamId = teamDetailParam[1].substr(3);
+            getData(`teams/${teamId}`, renderTeamDetail, true)
+        } else {
+            location.href = '/';
+        }
         break;
-}
-
-// Team-Detail
-const teamDetailParam = document.location.href.split('/').pop().split('?');
-if(teamDetailParam[0] === "team-detail.html") {
-    const teamId = teamDetailParam[1].substr(3);
-    getData(`teams/${teamId}`, renderTeamDetail)
 }

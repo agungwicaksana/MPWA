@@ -9,7 +9,6 @@ export default function renderMatch(data) {
         };
         return splitted.join(' ');
     }
-    console.log(data.matches)
 
     let mainContent = '';
     const pageTitle = 
