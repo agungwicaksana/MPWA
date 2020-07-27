@@ -38,7 +38,7 @@ export default function renderTeamDetail(team) {
                 <td>${checkD(p.name)}</td>
                 <td>${checkD(p.position)}</td>
                 <td>${checkD(getAge(p.dateOfBirth))}</td>
-                <td>${checkD(p.nationality)}}</td>
+                <td>${checkD(p.nationality)}</td>
             </tr>
         `;
     });
