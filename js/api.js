@@ -1,8 +1,9 @@
 import renderTeam from "./team.js";
 import renderTeamDetail from "./team-detail.js";
 import renderMatch from "./match.js";
+import renderIndex from "./index.js";
 
-const apiUrl = "https://api.football-data.org/v2/";
+const apiUrl = "https://api.football-data.org/v2/competitions/2001/";
 const apiToken = "02c651fbb55e47e18b7702cacefba634";
 
 const getData = (endpoint, renderer) => {
@@ -26,14 +27,15 @@ switch (document.location.href.split('/').pop()) {
     case "/":
     case "":
         console.log('index')
+        getData('standings', renderIndex)
         break
     case "team.html":
         console.log('team')
-        getData('competitions/2001/teams', renderTeam)
+        getData('teams', renderTeam)
         break;
     case "match.html":
         console.log('match');
-        getData('competitions/2001/matches', renderMatch);
+        getData('matches', renderMatch);
         break;
     case "favorite.html":
         console.log('Favorite');
