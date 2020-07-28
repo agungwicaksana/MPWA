@@ -22,6 +22,7 @@ const cachedUrls = [
     "/js/apiFetch.js",
     "/js/idb.js",
     "/js/index.js",
+    "/js/indexedDb.js",
     "/js/match.js",
     "/js/materialize.min.js",
     "/js/static.js",

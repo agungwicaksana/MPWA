@@ -1,6 +1,4 @@
 function renderTeamDetail(team) {
-    console.log(team)
-    
     // DoB to Age
     const getAge = (dob) => {
         const date = dob.substr(0,10).split('-');
@@ -123,13 +121,26 @@ function renderTeamDetail(team) {
         if(!$(e.target).hasClass('saved')){
             $(e.target).removeClass('darken-4')
             $(e.target).addClass('lighten-2 saved')
+            $(e.target).text('SAVED')
             // Save to indexedDB
+            saveToDb(team)
         } else {
             $(e.target).removeClass('lighten-2 saved')
             $(e.target).addClass('darken-4')
+            $(e.target).text('SAVE')
             // Del from indexedDB
+            deleteTeam(team)
         };
     });
+
+    // Check saved team
+    getTeam(team.id).then(idx => {
+        if(idx){
+            $('.favorite-btn a').removeClass('darken-4')
+            $('.favorite-btn a').addClass('lighten-2 saved')
+            $('.favorite-btn a').text('SAVED')
+        }
+    })
 
     // Back Button func
     $('.back-btn').click(function(e) {  
