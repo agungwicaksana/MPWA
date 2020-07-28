@@ -40,7 +40,7 @@ export default function renderIndex(data) {
     // Info
     mainContent += `
         <div class="container">
-            <div class="row league-box">
+            <div class="row league-box white">
                 <div class="col s12 mb-1">
                     <h5 class="center-align">${data.competition.name}</h5>
                 </div>

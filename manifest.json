@@ -1,0 +1,26 @@
+{
+    "name": "UEFA Champions League",
+    "shortname" : "UCL",
+    "description": "UEFA App",
+    "start_url" : "/index.html",
+    "display": "standalone",
+    "background_color" : "#0D47A1",
+    "theme_color": "#0D47A1",
+    "icons" : [
+        {
+            "src": "assets/Ball.svg",
+            "sizes" : "512x512",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/Ball.svg",
+            "sizes" : "192x192",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/Ball.svg",
+            "sizes" : "144x144",
+            "purpose": "any maskable"
+        }
+    ]
+}

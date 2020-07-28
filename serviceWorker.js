@@ -1,47 +1,60 @@
-const CACHE_NAME = "uefa";
-const urlsToCache = [
+const cacheName = "uefa-app-v1";
+const cachedUrls = [
     "/",
-    "/index.html"
+    "/index.html",
+    "/favorite.html",
+    "/match.html",
+    "/team.html",
+    "/team-detail.html",
+    "/manifest.json",
+    "/regServiceWorker.js",
+    "/serviceWorker.js",
+    "/assets/Ball.svg",
+    "/assets/banner.jpg",
+    "/assets/bannerlg.jpg",
+    "/assets/bannermd.jpg",
+    "/assets/navLogo.svg",
+    "/assets/sq_logo.svg",
+    "/css/materialize.min.css",
+    "/css/style.css",
+    "/css/util.css",
+    "/js/api.js",
+    "/js/customE.js",
+    "/js/idb.js",
+    "/js/index.js",
+    "/js/match.js",
+    "/js/materialize.min.js",
+    "/js/static.js",
+    "/js/team.js",
+    "/js/team-detail.js",
+    "/js/url.js",
+    "/js/util.js"
 ];
 
-self.addEventListener("install", function(event) {
-    event.waitUntil(
-        caches.open(CACHE_NAME).then(function(cache) {
-            return cache.addAll(urlsToCache);
-        })
-    );
+self.addEventListener("install", event => {
+    event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(cachedUrls)))
 });
 
-self.addEventListener("fetch", function(event) {
-    const API_URL = "https://api.football-data.org/v2/";
-    if (event.request.url.indexOf(API_URL) > -1) {
-        event.respondWith(
-            caches.open(CACHE_NAME).then(async function(cache) {
-                return await fetch(event.request).then(function(response) {
-                    cache.put(event.request.url, response.clone());
-                    return response;
-                })
+self.addEventListener("fetch", event => {
+    const apiUrl = "https://api.football-data.org/v2";
+    if(event.request.url.indexOf(apiUrl)>-1) {
+        event.respondWith(caches.open(cacheName).then(async (cache) => {
+            return await fetch(event.request).then(resp => {
+                cache.put(event.request.url, resp.clone());
+                return resp;
             })
-        );
+        }))
     } else {
-        event.respondWith(
-            caches.match(event.request, { ignoreSearch: true }).then(function(response) {
-                return response || fetch (event.request);
-            })
-        )
+        event.respondWith(caches.match(event.request, {ignoreSearch: true}).then(resp => resp || fetch(event.request)))
     }
-});
+})
 
-self.addEventListener("activate", function(event) {
-    event.waitUntil(
-        caches.keys().then(function(cacheNames) {  
-            return Promise.all(
-                cacheNames.map(function(cacheName) {  
-                    if(cacheName !== CACHE_NAME && cacheName.startsWith("submission")) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
+self.addEventListener("activate", event => {
+    event.waitUntil(caches.keys().then(cNames => Promise.all(
+        cNames.map(cName => {
+            if(cName !== cName && cName.startsWith("uefa-app")) {
+                return caches.delete(cName)
+            }
         })
-    );
-});
+    )))
+})
