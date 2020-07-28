@@ -11,7 +11,8 @@ function renderIndex(data) {
     
     // Standings
     mainContent += `
-        <div class="container">
+    <div id="standings-container" class="grey lighten-4">
+        <div class="container pt-1">
             <div class="row">
                 <div class="col-12">
                     <h5 class="center-align">Standings</h5>
@@ -36,36 +37,37 @@ function renderIndex(data) {
 
     // Info
     mainContent += `
-        <div class="container">
-            <div class="row league-box white">
-                <div class="col s12 mb-1">
-                    <h5 class="center-align">${data.competition.name}</h5>
-                </div>
-                <div class="col s12 m10 l8 offset-m1 offset-l2">
-                    <table class="w-100 centered striped highlight mb-1">
-                        <tbody>
-                            <tr>
-                                <td>Name</td>
-                                <td>${data.competition.name}</td>
-                            </tr>
-                            <tr>
-                                <td>Name</td>
-                                <td>${data.competition.code}</td>
-                            </tr>
-                            <tr>
-                                <td>Event Start</td>
-                                <td>${data.season.startDate}</td>
-                            </tr>
-                            <tr>
-                                <td>Event End</td>
-                                <td>${data.season.endDate}</td>
-                            </tr>
-                            <tr>
-                                <td>Winner</td>
-                                <td>${checkD(data.season.winner)}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="container">
+                <div class="row league-box white">
+                    <div class="col s12 mb-1">
+                        <h5 class="center-align">${data.competition.name}</h5>
+                    </div>
+                    <div class="col s12 m10 l8 offset-m1 offset-l2">
+                        <table class="w-100 centered striped highlight mb-1">
+                            <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>${data.competition.name}</td>
+                                </tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>${data.competition.code}</td>
+                                </tr>
+                                <tr>
+                                    <td>Event Start</td>
+                                    <td>${data.season.startDate}</td>
+                                </tr>
+                                <tr>
+                                    <td>Event End</td>
+                                    <td>${data.season.endDate}</td>
+                                </tr>
+                                <tr>
+                                    <td>Winner</td>
+                                    <td>${checkD(data.season.winner)}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

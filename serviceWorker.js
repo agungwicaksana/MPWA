@@ -45,11 +45,7 @@ self.addEventListener("fetch", event => {
             })
         }))
     } else {
-        event.respondWith(caches.match(event.request, {ignoreSearch: true}).then(resp => {
-            console.log('resp',resp)
-            console.log('event.request',event.request)
-            return resp || fetch(event.request);
-        }))
+        event.respondWith(caches.match(event.request, {ignoreSearch: true}).then(resp => resp || fetch(event.request)))
     }
 })
 
