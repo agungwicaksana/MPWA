@@ -1,7 +1,4 @@
-import { checkD } from "./util.js";
-import urlHttps from "./url.js";
-
-export default function renderIndex(data) {
+function renderIndex(data) {
     let mainContent = '';
 
     // Parallax

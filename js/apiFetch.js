@@ -1,8 +1,3 @@
-import renderTeam from "./team.js";
-import renderTeamDetail from "./team-detail.js";
-import renderMatch from "./match.js";
-import renderIndex from "./index.js";
-
 const apiUrl = "https://api.football-data.org/v2/competitions/2001/";
 const apiToken = "02c651fbb55e47e18b7702cacefba634";
 

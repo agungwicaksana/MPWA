@@ -18,8 +18,8 @@ const cachedUrls = [
     "/css/materialize.min.css",
     "/css/style.css",
     "/css/util.css",
-    "/js/apiFetch.js",
     "/js/customE.js",
+    "/js/apiFetch.js",
     "/js/idb.js",
     "/js/index.js",
     "/js/match.js",
@@ -27,7 +27,6 @@ const cachedUrls = [
     "/js/static.js",
     "/js/team.js",
     "/js/team-detail.js",
-    "/js/url.js",
     "/js/util.js",
     "https://fonts.googleapis.com/icon?family=Material+Icons"
 ];
@@ -47,7 +46,9 @@ self.addEventListener("fetch", event => {
         }))
     } else {
         event.respondWith(caches.match(event.request, {ignoreSearch: true}).then(resp => {
-            return hasil = resp || fetch(event.request);
+            console.log('resp',resp)
+            console.log('event.request',event.request)
+            return resp || fetch(event.request);
         }))
     }
 })

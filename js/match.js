@@ -1,6 +1,4 @@
-import {checkD} from "./util.js";
-
-export default function renderMatch(data) {
+function renderMatch(data) {
     // Format Data
     const formatT = (text) => {
         const splitted = text.toLowerCase().split('_');

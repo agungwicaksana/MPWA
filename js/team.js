@@ -1,6 +1,4 @@
-import urlHttps from "./url.js";
-
-export default function renderTeam(data) {
+function renderTeam(data) {
     // Data
     const teams = data.teams.sort((t1, t2) => (t1.name > t2.name)?1:-1);
 

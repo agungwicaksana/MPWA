@@ -1,7 +1,4 @@
-import urlHttps from "./url.js";
-import {checkD} from "./util.js";
-
-export default function renderTeamDetail(team) {
+function renderTeamDetail(team) {
     console.log(team)
     
     // DoB to Age
