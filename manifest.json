@@ -22,5 +22,6 @@
             "sizes" : "144x144",
             "purpose": "any maskable"
         }
-    ]
+    ],
+    "gcm_sender_id": "633218760603"
 }
