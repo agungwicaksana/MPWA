@@ -10,10 +10,10 @@ if("serviceWorker" in navigator) {
                     navigator.serviceWorker.getRegistration().then(reg=>{
                         reg.pushManager.subscribe({
                             userVisibleOnly: true,
-                            applicationServerKey: convertToUint("")
+                            applicationServerKey: convertToUint("BLJdXAADUQwHn8zmRutTiVS_q4Aq5kKwF-w7tisNoRvTXTZv4jlecvRlNc895uBRVbSpm3zK8lkQtqyc0o1GGoI")
                         }).then(subs=>{
                             console.log('Berhasil subscribe')
-                            console.log('endpoint: ',endpoint)
+                            console.log('endpoint: ', subs.endpoint)
                             console.log('p256dh: ', btoa(String.fromCharCode.apply(null, new Uint8Array(subs.getKey("p256dh")))))
                             console.log('Auth: ', btoa(String.fromCharCode.apply(null, new Uint8Array(subs.getKey("auth")))))
                         }).catch(err=>{
