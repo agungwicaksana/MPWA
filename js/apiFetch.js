@@ -7,6 +7,20 @@ const apiUrl = "https://api.football-data.org/v2/competitions/2001/";
 const apiToken = "02c651fbb55e47e18b7702cacefba634";
 
 const getData = (endpoint, renderer, team = false) => {
+    if("caches" in window){
+        caches.match(`${(team) ? apiUrl.substr(0,32) : apiUrl}/${endpoint}`, {
+            headers : {"X-Auth-Token": apiToken}
+        }).then(resp => {
+            if(resp) {
+                resp.json().then(respJson => {
+                    console.log('dari cache')
+                    console.log(respJson)
+                    renderer(respJson)
+                })
+            }
+        })
+    }
+
     $.ajax({
         url: `${(team) ? apiUrl.substr(0,32) : apiUrl}/${endpoint}`,
         headers : {"X-Auth-Token": apiToken},
@@ -16,6 +30,7 @@ const getData = (endpoint, renderer, team = false) => {
             // console.log('done')
         },
         success: function(r){
+            console.log('dari api')
             renderer(r)
         },
         error: function(er) {console.log(er)}

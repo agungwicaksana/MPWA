@@ -18,7 +18,7 @@ const cachedUrls = [
     "/css/materialize.min.css",
     "/css/style.css",
     "/css/util.css",
-    "/js/api.js",
+    "/js/apiFetch.js",
     "/js/customE.js",
     "/js/idb.js",
     "/js/index.js",
@@ -28,7 +28,8 @@ const cachedUrls = [
     "/js/team.js",
     "/js/team-detail.js",
     "/js/url.js",
-    "/js/util.js"
+    "/js/util.js",
+    "https://fonts.googleapis.com/icon?family=Material+Icons"
 ];
 
 self.addEventListener("install", event => {
@@ -45,7 +46,9 @@ self.addEventListener("fetch", event => {
             })
         }))
     } else {
-        event.respondWith(caches.match(event.request, {ignoreSearch: true}).then(resp => resp || fetch(event.request)))
+        event.respondWith(caches.match(event.request, {ignoreSearch: true}).then(resp => {
+            return hasil = resp || fetch(event.request);
+        }))
     }
 })
 
