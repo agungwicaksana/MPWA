@@ -59,3 +59,18 @@ self.addEventListener("activate", event => {
         })
     )))
 })
+
+self.addEventListener("push", event =>{
+    let body;
+    (event.data) ? body=event.data.text() : body="No Payload Here";
+    const opts = {
+        body:body,
+        icon: "assets/Ball.svg",
+        vibrate: [50, 50, 50],
+        data: {
+            dateOfArrival: Date.now(),
+            primaryKey: 1
+        }
+    };
+    event.waitUntil(self.registration.showNotification('Push Notification', opts));
+})
