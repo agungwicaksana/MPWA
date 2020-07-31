@@ -145,6 +145,6 @@ function renderTeamDetail(team) {
     // Back Button func
     $('.back-btn').click(function(e) {  
         e.preventDefault();
-        location.href = 'team.html';
+        window.history.back()
     });
 }

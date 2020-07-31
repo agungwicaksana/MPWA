@@ -92,9 +92,13 @@ switch (document.location.href.split('/').pop()) {
     default:
         // Team-Detail
         const teamDetailParam = document.location.href.split('/').pop().split('?');
+        const teamId = teamDetailParam[1].substr(3);
         if(teamDetailParam[0] === "team-detail.html") {
-            const teamId = teamDetailParam[1].substr(3);
             getData(`teams/${teamId}`, renderTeamDetail, true)
+        } else if(teamDetailParam[0] === "saved-team.html") {
+            getTeam(teamId).then(d => {
+                renderTeamDetail(d)
+            })
         } else {
             location.href = '/';
         }

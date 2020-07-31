@@ -14,7 +14,7 @@ function saveToDb(team) {
 
 function getTeam(id) {
     return new Promise(r=>{
-        openDb.then(db=> db.transaction("teams", "readonly").objectStore("teams").get(id))
+        openDb.then(db=> db.transaction("teams", "readonly").objectStore("teams").get(parseInt(id)))
             .then(team=>{
                 r(team)
             });

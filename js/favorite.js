@@ -29,7 +29,7 @@ function renderFavorite(teams) {
         teams.forEach(team => {
             teamBoxes += `
                 <div class="col s12 m6 l4">
-                    <a href="team-detail.html?id=${team.id}">
+                    <a href="saved-team.html?id=${team.id}">
                         <div class="team-box white z-depth-3 waves-effect">
                             <div class="team-logo">
                                 <img src="${urlHttps(team.crestUrl)}" onerror="this.src='/assets/Ball.svg'" alt="Logo ${team.name}">
