@@ -4,23 +4,23 @@
     "description": "UEFA App",
     "start_url" : "/index.html",
     "display": "standalone",
-    "background_color" : "#0D47A1",
+    "background_color" : "#ffffff",
     "theme_color": "#0D47A1",
     "icons" : [
         {
-            "src": "assets/Ball.svg",
+            "src": "assets/512.png",
             "sizes" : "512x512",
-            "purpose": "any maskable"
+            "type": "image/png"
         },
         {
-            "src": "assets/Ball.svg",
+            "src": "assets/192.png",
             "sizes" : "192x192",
-            "purpose": "any maskable"
+            "type": "image/png"
         },
         {
-            "src": "assets/Ball.svg",
+            "src": "assets/144.png",
             "sizes" : "144x144",
-            "purpose": "any maskable"
+            "type": "image/png"
         }
     ],
     "gcm_sender_id": "633218760603"

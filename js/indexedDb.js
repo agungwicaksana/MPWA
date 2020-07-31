@@ -5,7 +5,7 @@ const openDb = idb.open('saved-team', 1, upgDb => {
 function saveToDb(team) {
     openDb.then(db=> {
         const trx = db.transaction("teams","readwrite");
-        trx.objectStore("teams").add(team)
+        trx.objectStore("teams").put(team)
         return trx.complete;
     }).then(()=> {
         M.toast({html: `${team.shortName} saved`})
