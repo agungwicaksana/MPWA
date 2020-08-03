@@ -1,6 +1,6 @@
 {
     "name": "UEFA Champions League",
-    "shortname" : "UCL",
+    "short_name" : "UCL",
     "description": "UEFA App",
     "start_url" : "/index.html",
     "display": "standalone",

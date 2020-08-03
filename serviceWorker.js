@@ -35,7 +35,8 @@ const cachedUrls = [
     "/js/team.js",
     "/js/team-detail.js",
     "/js/util.js",
-    "https://fonts.googleapis.com/icon?family=Material+Icons"
+    "https://fonts.googleapis.com/icon?family=Material+Icons",
+    "https://code.jquery.com/jquery-3.5.1.min.js"
 ];
 
 self.addEventListener("install", event => {
