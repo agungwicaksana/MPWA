@@ -52,9 +52,8 @@ const getData = (endpoint, renderer, team = false) => {
         </div>
     `)
     if("caches" in window){
-        caches.match(`${(team) ? apiUrl.substr(0,32) : apiUrl}/${endpoint}`, {
-            headers : {"X-Auth-Token": apiToken}
-        }).then(resp => {
+        caches.match(`${(team) ? apiUrl.substr(0,32) : apiUrl}/${endpoint}`)
+        .then(resp => {
             if(resp) {
                 resp.json().then(respJson => {
                     $('#loader').remove();
