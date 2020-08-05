@@ -10,17 +10,20 @@
         {
             "src": "assets/512.png",
             "sizes" : "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
             "src": "assets/192.png",
             "sizes" : "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
             "src": "assets/144.png",
             "sizes" : "144x144",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ],
     "gcm_sender_id": "633218760603"
