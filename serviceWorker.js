@@ -38,7 +38,9 @@ workbox.precaching.precacheAndRoute(
         {url: "https://fonts.googleapis.com/icon?family=Material+Icons", revision: "1"},
         {url: "https://code.jquery.com/jquery-3.5.1.min.js", revision: "1"},
         {url: "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js", revision: "1"}
-    ]
+    ], {
+        ignoreUrlParametersMatching: [/.*/]
+    }
 )
 
 workbox.routing.registerRoute(
